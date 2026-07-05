@@ -31,8 +31,8 @@ async def poll_loop(collector: IRacingCollector, engine: ThreatEngine, config: d
         await asyncio.sleep(telem_interval)
 
 
-async def main_async() -> None:
-    config = load_config()
+async def run_backend(config: dict) -> None:
+    """Collector + threat engine + websocket server, run until cancelled."""
     collector = IRacingCollector()
     engine = ThreatEngine(config)
     server = OverlayServer(
@@ -49,7 +49,7 @@ async def main_async() -> None:
 
 
 def main() -> None:
-    asyncio.run(main_async())
+    asyncio.run(run_backend(load_config()))
 
 
 if __name__ == "__main__":

@@ -98,6 +98,40 @@ want it; it stays on top and follows you between sessions.
 Or skip the pywebview window entirely and add `overlay/index.html` as an OBS
 browser source if you're streaming.
 
+## Build a standalone .exe
+
+If you'd rather have one file to double-click instead of two PowerShell
+terminals, `numpty_flag/app.py` runs the collector, engine, websocket server
+and overlay window all in a single process, and `NumptyFlag.spec` packages
+it with PyInstaller.
+
+1. Complete the setup steps above first (venv activated, dependencies
+   installed).
+2. Install the build tool (one-time, only needed on the machine doing the
+   build):
+   ```powershell
+   pip install pyinstaller
+   ```
+3. Build it:
+   ```powershell
+   pyinstaller NumptyFlag.spec
+   ```
+4. The result is `dist\NumptyFlag.exe` — a single self-contained file. Copy
+   it wherever you like (Desktop, another folder, another Windows PC with
+   iRacing installed) and double-click it to run. No Python installation is
+   needed on the machine that just runs the exe.
+
+Notes:
+
+- The exe opens a console window alongside the overlay showing collector
+  logs ("Waiting for iRacing...", connection status). Closing the console
+  window stops the whole program, including the overlay.
+- On first run, it creates a `config.json` next to the exe (copied from the
+  bundled default) so you can still tune thresholds without rebuilding.
+- iRacing must still be in **borderless windowed** mode, same as above.
+- Rebuild (`pyinstaller NumptyFlag.spec`) any time you change the source or
+  `config.json`'s bundled defaults.
+
 ## Develop / tune without iRacing running
 
 Record a few minutes of a real session once, then replay it as many times
