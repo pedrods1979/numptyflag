@@ -1,0 +1,35 @@
+{
+  "proximity_seconds": 5.0,
+
+  "recent_window_laps": 3,
+  "numpty_recent_window_laps": 2,
+
+  "weight_recent": 2.0,
+  "weight_rate": 1.5,
+
+  "sr_good_letters": ["A", "B"],
+  "sr_good_min": 3.0,
+  "sr_good_modifier": -0.5,
+  "sr_bad_letters": ["D", "R"],
+  "sr_bad_max": 2.0,
+  "sr_bad_modifier": 0.5,
+
+  "clean_score_max": 2.0,
+  "numpty_score_min": 5.0,
+  "numpty_recent_threshold": 4,
+  "numpty_total_threshold": 12,
+
+  "let_him_go_gap_seconds": 1.5,
+  "let_him_go_closing_threshold": 0.3,
+  "let_him_go_cooldown_seconds": 60,
+
+  "gap_history_seconds": 60,
+  "incident_history_seconds": 600,
+
+  "poll_hz_telemetry": 10,
+  "session_info_poll_seconds": 1.0,
+  "broadcast_hz": 4,
+
+  "websocket_host": "localhost",
+  "websocket_port": 8765
+}
