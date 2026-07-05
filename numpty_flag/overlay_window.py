@@ -2,19 +2,19 @@
 
 Run alongside `python -m numpty_flag.main` (which serves the websocket feed).
 iRacing must be in borderless windowed mode for this to sit on top of it.
-"""
 
-import pathlib
+For a single-process/single-exe setup, use `numpty_flag.app` instead.
+"""
 
 import webview
 
-OVERLAY_HTML = pathlib.Path(__file__).resolve().parent.parent / "overlay" / "index.html"
+from .paths import overlay_html_uri
 
 
 def launch() -> None:
     webview.create_window(
         "Numpty Flag",
-        url=OVERLAY_HTML.as_uri(),
+        url=overlay_html_uri(),
         transparent=True,
         frameless=True,
         easy_drag=True,
